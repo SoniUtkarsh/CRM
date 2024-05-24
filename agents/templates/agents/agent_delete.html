@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load tailwind_filters %}
+{% block content %}
+<div class="max-w-lg mx-auto">
+    <h1 class="text-4xl text-gray-800">Are you sure you want to Delete a agent?</h1>
+    <form method="post" class="mt-5">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="w-full mt-3 flex items-center justify-center ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded-md">Yes, i am</button>
+    </form>
+    <div class="py-2 border-t border-gray-300 mt-3">
+        <a class="text-gray-500 hover:text-indigo-500 " href="{% url 'agents:agent-list' %}">Go back to agents</a>
+    </div>
+</div>
+{% endblock content %}
